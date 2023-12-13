@@ -46,7 +46,16 @@ function Nav() {
                 className="block py-2 px-3 text-sky-500 rounded md:bg-transparent md:text-sky-500 md:p-0 dark:text-white md:dark:text-cyan-400"
                 aria-current="page"
               >
-                Home
+                Dashboard
+              </a>
+            </li>
+            <li>
+              <a
+                href="#"
+                className="block py-2 px-3 text-sky-500 rounded md:bg-transparent md:text-sky-500 md:p-0 dark:text-white md:dark:text-cyan-400"
+                aria-current="page"
+              >
+                Login
               </a>
             </li>
           </ul>
