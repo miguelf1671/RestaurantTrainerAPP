@@ -6,7 +6,7 @@ function LoginPage() {
       <div className="text-center" style={{ marginTop: "1vh" }}>
         <div className="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
           <div className="sm:mx-auto sm:w-full sm:max-w-sm">
-            <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
+            <h2 className="mt-10 text-center text-2xl font-mono font-bold leading-9 tracking-tight text-gray-900">
               Sign in to your account
             </h2>
           </div>
@@ -43,7 +43,7 @@ function LoginPage() {
                   <div className="text-sm">
                     <a
                       href="#"
-                      className="font-semibold text-indigo-600 hover:text-indigo-500"
+                      className="font-semibold text-white hover:text-black"
                     >
                       Forgot password?
                     </a>
@@ -64,7 +64,7 @@ function LoginPage() {
               <div>
                 <button
                   type="submit"
-                  className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                  className="bg-sky-400 rounded px-1 py-1 mr-6 mt-6 text-sky-700 hover:bg-sky-300 font-semibold"
                 >
                   Sign in
                 </button>
