@@ -9,12 +9,17 @@ function HomePage() {
             "Empowering Your Team: Training a New Employee Made Simple and
             Effortless!"
           </h1>
-          <button className="bg-sky-400 rounded px-1 py-1 mr-6 mt-6 text-sky-700 hover:bg-sky-300 font-semibold">
-            Login
-          </button>
-          <button className="bg-sky-400 rounded px-1 py-1 ml-6 mt-6 text-sky-700 hover:bg-sky-300 font-semibold">
-            Sign Up
-          </button>
+          <a href="http://localhost:5173/login">
+            <button className="bg-sky-400 rounded px-1 py-1 mr-6 mt-6 text-sky-700 hover:bg-sky-300 font-semibold">
+              Login
+            </button>
+          </a>
+
+          <a href="http://localhost:5173/register">
+            <button className="bg-sky-400 rounded px-1 py-1 ml-6 mt-6 text-sky-700 hover:bg-sky-300 font-semibold">
+              Sign Up
+            </button>
+          </a>
         </div>
       </div>
     </>

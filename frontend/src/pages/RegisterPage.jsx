@@ -1,5 +1,7 @@
 import React, { useState } from "react";
+
 import { FaRegUserCircle } from "react-icons/fa";
+import { toast } from "react-toastify";
 
 // import { BiUser } from "react-icons/bi";
 
@@ -15,8 +17,19 @@ const RegisterPage = () => {
   const { first_name, last_name, email, password, re_password } = formData;
 
   const handleChange = (e) => {
-    setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
-    console.log(formData);
+    setFormData(
+      (prev) => ({ ...prev, [e.target.name]: e.target.value }),
+      console.log(formData)
+    );
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    if (password != re_password) {
+      console.log("passwords do not match");
+      toast.error("Passwords do not match");
+    }
   };
 
   return (
@@ -77,7 +90,10 @@ const RegisterPage = () => {
                 value={re_password}
                 required
               />
-              <button className="bg-sky-400 rounded px-1 py-1 mr-6 mt-6 text-sky-700 hover:bg-sky-300 font-semibold">
+              <button
+                onClick={handleSubmit}
+                className="bg-sky-400 rounded px-1 py-1 mr-6 mt-6 text-sky-700 hover:bg-sky-300 font-semibold"
+              >
                 Register
               </button>
             </form>
