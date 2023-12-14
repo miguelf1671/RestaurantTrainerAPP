@@ -21,7 +21,7 @@ function App() {
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/register" element={<RegisterPage />} />
           <Route path="/resetpassword" element={<ResetPasswordPage />} />
-          <Route path="/account-avtivated" element={<ActivatePage />} />
+          <Route path="/account-activated" element={<ActivatePage />} />
         </Routes>
       </Router>
       <ToastContainer />
