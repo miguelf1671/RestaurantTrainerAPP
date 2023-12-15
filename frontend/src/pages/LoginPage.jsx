@@ -1,4 +1,9 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { login, reset } from "../features/auth/authSlice";
+import { toast } from "react-toastify";
+import Spinner from "../components/Spinner";
 
 function LoginPage() {
   const [formData, setFormData] = useState({
@@ -7,6 +12,16 @@ function LoginPage() {
   });
 
   const { email, password } = formData;
+
+  const dispatch = useDispatch();
+
+  const navigate = useNavigate();
+
+  // useSelector hook to select date from the Redux store
+  // extracting from the 'auth' slice in the Redux store
+  const { user, isLoading, isError, isSuccess, message } = useSelector(
+    (state) => state.auth
+  );
 
   const handleChange = (e) => {
     setFormData((prev) => ({
