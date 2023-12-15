@@ -1,9 +1,12 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import authService from "./authService";
 
+const user = JSON.parse(localStorage.getItem("user"));
+
 // define the initial state of the 'auth' slice in your Redux store
 const initialState = {
-  user: null,
+  user: user ? user : null,
+  userInfo: {},
   isError: false,
   isSuccess: false,
   isLoading: false,
@@ -51,10 +54,29 @@ export const logout = createAsyncThunk("auth/logout", async () => {
 });
 
 export const activate = createAsyncThunk(
-  "auth/account-activated",
+  "auth/activate",
   async (userData, thunkAPI) => {
     try {
       return await authService.activate(userData);
+    } catch (error) {
+      const message =
+        (error.response &&
+          error.response.data &&
+          error.response.data.message) ||
+        error.message ||
+        error.toString();
+
+      return thunkAPI.rejectWithValue(message);
+    }
+  }
+);
+
+export const getUserInfo = createAsyncThunk(
+  "auth/getUserInfo",
+  async (_, thunkAPI) => {
+    try {
+      const accessToken = thunkAPI.getState().auth.user.access;
+      return await authService.getUserInfo(accessToken);
     } catch (error) {
       const message =
         (error.response &&
@@ -131,6 +153,10 @@ export const authSlice = createSlice({
         state.isError = true;
         state.message = action.payload;
         state.user = null;
+      })
+
+      .addCase(getUserInfo.fulfilled, (state, action) => {
+        state.userInfo = action.payload;
       });
   },
 });

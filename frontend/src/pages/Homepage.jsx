@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 
 function HomePage() {
   return (
@@ -9,17 +10,17 @@ function HomePage() {
             "Empowering Your Team: Training a New Employee Made Simple and
             Effortless!"
           </h1>
-          <a href="http://localhost:5173/login">
+          <NavLink to="/login">
             <button className="bg-sky-400 rounded px-1 py-1 mr-6 mt-6 text-sky-700 hover:bg-sky-300 font-semibold">
               Login
             </button>
-          </a>
+          </NavLink>
 
-          <a href="http://localhost:5173/register">
+          <NavLink to="/register">
             <button className="bg-sky-400 rounded px-1 py-1 ml-6 mt-6 text-sky-700 hover:bg-sky-300 font-semibold">
               Sign Up
             </button>
-          </a>
+          </NavLink>
         </div>
       </div>
     </>

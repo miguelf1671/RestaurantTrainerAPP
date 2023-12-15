@@ -1,18 +1,31 @@
 import "/src/index.css";
 import calendarImage from "../assets/calendar.png"; // Assuming the image is in the 'src/assets' folder
+import { useDispatch, useSelector } from "react-redux";
+import { NavLink, useNavigate } from "react-router-dom";
+import { logout, reset } from "../features/auth/authSlice";
+import { toast } from "react-toastify";
 
 function Nav() {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const { user } = useSelector((state) => state.auth);
+
+  const handleLogout = () => {
+    dispatch(logout());
+    dispatch(reset());
+    navigate("/");
+  };
+
   return (
     <nav className="bg-white border-gray-200 dark:bg-gray-900">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-        {/* <a
-          //   href="https://flowbite.com/"
-          className="flex items-center space-x-3 rtl:space-x-reverse"
-        > */}
         <img src={calendarImage} className="h-8" alt="Flowbite Logo" />
-        <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
-          TrainWithMe
-        </span>
+        <NavLink to="/">
+          <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
+            TrainWithMe
+          </span>
+        </NavLink>
         {/* </a> */}
         <button
           data-collapse-toggle="navbar-default"
@@ -40,24 +53,35 @@ function Nav() {
         </button>
         <div className="hidden w-full md:block md:w-auto" id="navbar-default">
           <ul className="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
-            <li>
-              <a
-                href="#"
-                className="block py-2 px-3 text-sky-500 rounded md:bg-transparent md:text-sky-500 md:p-0 dark:text-white md:dark:text-cyan-400"
-                aria-current="page"
-              >
-                Dashboard
-              </a>
-            </li>
-            <li>
-              <a
-                href="#"
-                className="block py-2 px-3 text-sky-500 rounded md:bg-transparent md:text-sky-500 md:p-0 dark:text-white md:dark:text-cyan-400"
-                aria-current="page"
-              >
-                Login
-              </a>
-            </li>
+            {user ? (
+              <>
+                <li>
+                  <NavLink to="/dashboard">
+                    <p className="block py-2 px-3 text-sky-500 rounded md:bg-transparent md:text-sky-500 md:p-0 dark:text-white md:dark:text-cyan-400">
+                      Dashboard
+                    </p>
+                  </NavLink>
+                </li>
+
+                <li>
+                  <NavLink to="/" onClick={handleLogout}>
+                    <p className="block py-2 px-3 text-sky-500 rounded md:bg-transparent md:text-sky-500 md:p-0 dark:text-white md:dark:text-cyan-400">
+                      Logout
+                    </p>
+                  </NavLink>
+                </li>
+              </>
+            ) : (
+              <>
+                <li>
+                  <NavLink to="/dashboard">
+                    <p className="block py-2 px-3 text-sky-500 rounded md:bg-transparent md:text-sky-500 md:p-0 dark:text-white md:dark:text-cyan-400">
+                      Dashboard
+                    </p>
+                  </NavLink>
+                </li>
+              </>
+            )}
           </ul>
         </div>
       </div>

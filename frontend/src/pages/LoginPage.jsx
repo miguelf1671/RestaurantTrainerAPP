@@ -1,7 +1,7 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { NavLink, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { login, reset } from "../features/auth/authSlice";
+import { login, reset, getUserInfo } from "../features/auth/authSlice";
 import { toast } from "react-toastify";
 import Spinner from "../components/Spinner";
 
@@ -32,7 +32,23 @@ function LoginPage() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    const userData = {
+      email,
+      password,
+    };
+    dispatch(login(userData));
   };
+
+  useEffect(() => {
+    if (isError) {
+      toast.error(message);
+    }
+    if (isSuccess || user) {
+      navigate("/dashboard");
+    }
+    dispatch(reset());
+    dispatch(getUserInfo());
+  }, [isError, isSuccess, user, navigate, dispatch]);
 
   return (
     <div className="bg-blue-500 flex justify-center items-center h-screen">
@@ -42,10 +58,16 @@ function LoginPage() {
             <h2 className="mt-10 text-center text-2xl font-mono font-bold leading-9 tracking-tight text-gray-900">
               Sign in to your account
             </h2>
+            {isLoading && <Spinner />}
           </div>
 
           <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-            <form className="space-y-6" action="#" method="POST">
+            <form
+              className="space-y-6"
+              action="#"
+              method="POST"
+              onSubmit={handleSubmit}
+            >
               <div>
                 <label
                   htmlFor="email"
@@ -101,7 +123,6 @@ function LoginPage() {
               <div>
                 <button
                   type="submit"
-                  onSubmit={handleSubmit}
                   className="bg-sky-400 rounded px-1 py-1 mr-6 mt-6 text-sky-700 hover:bg-sky-300 font-semibold"
                 >
                   Sign in

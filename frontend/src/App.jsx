@@ -22,7 +22,7 @@ function App() {
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/register" element={<RegisterPage />} />
           <Route path="/resetpassword" element={<ResetPasswordPage />} />
-          <Route path="/account-activated" element={<ActivatePage />} />
+          <Route path="/activate/:uid/:token" element={<ActivatePage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </Router>
