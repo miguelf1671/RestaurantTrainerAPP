@@ -21,52 +21,42 @@ function Dashboard() {
         <h2 className="font-sans text-sm">Email: {userInfo.email}</h2>
         <h3 className="text-base">Position: Server</h3>
       </div>
-      <div className=" justify-center grid grid-cols-1  gap-4 justify-items-center">
-        <div className="bg-white max-w-sm rounded overflow-hidden shadow-lg flex flex-col items-center">
-          <img
-            className="h-32 w-32 sm:h-32 sm:w-32 md:h-40 md:w-40 lg:h-64 lg:w-64 mt-2"
-            src={scheduleImage}
-            alt="Sunset in the mountains"
-          />
-          <div className="px-6 py-4 text-center">
-            <div className="font-bold text-xl mb-2">The Coldest Sunset</div>
-            <p className="text-gray-700 text-base">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-              Voluptatibus quia, nulla! Maiores et perferendis eaque,
-              exercitationem praesentium nihil.
-            </p>
+      <div className=" justify-center grid grid-cols-2  gap-4 justify-items-center">
+        <NavLink to={"/training-schedule"}>
+          <div className="bg-white max-w-sm rounded overflow-hidden shadow-lg flex flex-col items-center">
+            <img
+              className="h-32 w-32 sm:h-32 sm:w-32 md:h-40 md:w-40 lg:h-40 lg:w-40 mt-2"
+              src={scheduleImage}
+              alt="Sunset in the mountains"
+            />
+            <div className="px-6 py-4 text-center">
+              <div className="font-bold text-lg mb-2">Training schedule</div>
+              <p className="text-gray-700 text-base"></p>
+            </div>
           </div>
-        </div>
+        </NavLink>
 
         <div className="bg-white max-w-sm rounded overflow-hidden shadow-lg flex flex-col items-center">
           <img
-            className="h-32 w-32 sm:h-32 sm:w-32 md:h-40 md:w-40 lg:h-64 lg:w-64 mt-2"
+            className="h-32 w-32 sm:h-32 sm:w-32 md:h-40 md:w-40 lg:h-40 lg:w-40 mt-2"
             src={saladImage}
             alt="Sunset in the mountains"
           />
           <div className="px-6 py-4 text-center">
-            <div className="font-bold text-xl mb-2">The Coldest Sunset</div>
-            <p className="text-gray-700 text-base">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-              Voluptatibus quia, nulla! Maiores et perferendis eaque,
-              exercitationem praesentium nihil.
-            </p>
+            <div className="font-bold text-lg mb-2">Food Descriptions</div>
+            <p className="text-gray-700 text-base"></p>
           </div>
         </div>
 
         <div className="bg-white max-w-sm rounded overflow-hidden shadow-lg flex flex-col items-center">
           <img
-            className="h-32 w-32 sm:h-32 sm:w-32 md:h-40 md:w-40 lg:h-64 lg:w-64 mt-2"
+            className="h-32 w-32 sm:h-32 sm:w-32 md:h-40 md:w-40 lg:h-40 lg:w-40 mt-2"
             src={wineglassImage}
             alt="Sunset in the mountains"
           />
           <div className="px-6 py-4 text-center">
-            <div className="font-bold text-xl mb-2">The Coldest Sunset</div>
-            <p className="text-gray-700 text-base">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-              Voluptatibus quia, nulla! Maiores et perferendis eaque,
-              exercitationem praesentium nihil.
-            </p>
+            <div className="font-bold text-lg mb-2">Drinks Descriptions</div>
+            <p className="text-gray-700 text-base"></p>
           </div>
         </div>
         <NavLink
@@ -76,19 +66,15 @@ function Dashboard() {
         >
           <div className="bg-white max-w-sm rounded overflow-hidden shadow-lg flex flex-col items-center">
             <img
-              className="h-32 w-32 sm:h-32 sm:w-32 md:h-40 md:w-40 lg:h-64 lg:w-64 mt-2"
+              className="h-32 w-32 sm:h-32 sm:w-32 md:h-40 md:w-40 lg:h-40 lg:w-40 mt-2"
               src={audiobookImage}
               alt="Sunset in the mountains"
             />
             <div className="px-6 py-4 text-center">
-              <div className="font-bold text-xl mb-2">
-                Sexual Harassment Training
+              <div className="font-bold text-lg mb-2">
+                Sexual Harassment <br /> Training
               </div>
-              <p className="text-gray-700 text-base">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Voluptatibus quia, nulla! Maiores et perferendis eaque,
-                exercitationem praesentium nihil.
-              </p>
+              <p className="text-gray-700 text-base"></p>
             </div>
           </div>
         </NavLink>
