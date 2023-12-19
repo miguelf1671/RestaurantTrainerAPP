@@ -46,7 +46,7 @@ function LoginPage() {
     if (isSuccess || user) {
       navigate("/dashboard");
     }
-    dispatch(reset());
+    // dispatch(reset());
     dispatch(getUserInfo());
   }, [isError, isSuccess, user, navigate, dispatch]);
 

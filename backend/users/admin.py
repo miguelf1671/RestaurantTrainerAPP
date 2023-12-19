@@ -25,7 +25,7 @@ class UserAdmin(BaseUserAdmin):
         (
             _("Personal Information"),
             {   
-                "fields": ("first_name", "last_name",)
+                "fields": ("first_name", "last_name", 'position')
             },
         ),
         (
@@ -44,7 +44,7 @@ class UserAdmin(BaseUserAdmin):
     add_fieldsets = (
         (None, {
             "classes": ("wide",),
-            "fields" :("email", "first_name", "last_name", "password1", "password2", "is_staff", "is_active"),
+            "fields" :("email", "first_name", "last_name", "position", "password1", "password2", "is_staff", "is_active"),
         },),
     )
     

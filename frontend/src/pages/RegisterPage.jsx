@@ -14,12 +14,14 @@ const RegisterPage = () => {
     first_name: "",
     last_name: "",
     email: "",
+    position: "",
     password: "",
     re_password: "",
   });
 
   // make it easier to access
-  const { first_name, last_name, email, password, re_password } = formData;
+  const { first_name, last_name, email, position, password, re_password } =
+    formData;
 
   const dispatch = useDispatch();
 
@@ -32,11 +34,12 @@ const RegisterPage = () => {
   );
 
   const handleChange = (e) => {
-    setFormData((prev) => {
-      const updatedFormData = { ...prev, [e.target.name]: e.target.value };
-      console.log(updatedFormData); // This will log the updated state correctly
-      return updatedFormData;
-    });
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+    console.log(formData);
   };
 
   const handleSubmit = (e) => {
@@ -50,6 +53,7 @@ const RegisterPage = () => {
         first_name,
         last_name,
         email,
+        position,
         password,
         re_password,
       };
@@ -81,7 +85,7 @@ const RegisterPage = () => {
             <div role="status">
               <svg
                 aria-hidden="true"
-                class="w-8 h-8 text-gray-200 animate-spin dark:text-gray-600 fill-white"
+                className="w-8 h-8 text-gray-200 animate-spin dark:text-gray-600 fill-white"
                 viewBox="0 0 100 101"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
@@ -95,7 +99,7 @@ const RegisterPage = () => {
                   fill="currentFill"
                 />
               </svg>
-              <span class="sr-only">Loading...</span>
+              <span className="sr-only">Loading...</span>
             </div>
           )}
 
@@ -130,6 +134,15 @@ const RegisterPage = () => {
                 name="email"
                 onChange={handleChange}
                 value={email}
+                required
+              />
+              <input
+                className="rounded m-4 "
+                type="text"
+                placeholder="Position"
+                name="position"
+                onChange={handleChange}
+                value={position}
                 required
               />
               <input
