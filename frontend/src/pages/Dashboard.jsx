@@ -13,7 +13,7 @@ function Dashboard() {
   console.log(userInfo);
 
   return (
-    <div className="bg-blue-500 min-h-screen   justify-start items-center">
+    <div className="bg-blue-500 min-h-screen   justify-start items-center pr-2 pl-2">
       <div className="bg-sky-100 rounded border-white border-4 p-4 mb-4">
         <h1 className="font-mono text-xl">
           Welcome, {userInfo.first_name} {userInfo.last_name}

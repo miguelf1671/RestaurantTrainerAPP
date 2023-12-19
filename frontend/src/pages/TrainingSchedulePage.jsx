@@ -3,7 +3,7 @@ import React from "react";
 function TrainingSchedulePage() {
   return (
     <>
-      <div className="bg-blue-500 min-h-screen pt-10 pb-10   justify-start items-center">
+      <div className="bg-blue-500 min-h-screen pt-10 pb-10 pl-4 pr-4   justify-start items-center">
         <div className="max-w-md mx-auto bg-white shadow-lg rounded-lg overflow-hidden mt-16">
           <div className="px-4 py-2">
             <h1 className="text-gray-800 font-mono text-2xl uppercase flex justify-center">
