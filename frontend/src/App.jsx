@@ -11,6 +11,7 @@ import ResetPasswordPage from "./pages/ResetPasswordPage";
 import ActivatePage from "./pages/ActivatePage";
 import NotFoundPage from "./pages/notFoundPage";
 import TrainingSchedulePage from "./pages/TrainingSchedulePage";
+import FoodDescriptionsPage from "./pages/FoodDescriptionsPage";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
           <Route path="/resetpassword" element={<ResetPasswordPage />} />
           <Route path="/activate/:uid/:token" element={<ActivatePage />} />
           <Route path="/training-schedule" element={<TrainingSchedulePage />} />
+          <Route path="/food-descriptions" element={<FoodDescriptionsPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </Router>

@@ -1,5 +1,5 @@
 import "/src/index.css";
-import calendarImage from "../assets/calendar.png"; // Assuming the image is in the 'src/assets' folder
+import restaurantImage from "../assets/restaurant.png"; // Assuming the image is in the 'src/assets' folder
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink, useNavigate } from "react-router-dom";
 import { logout, reset } from "../features/auth/authSlice";
@@ -27,7 +27,9 @@ function Nav() {
   return (
     <nav className="bg-white border-gray-200 dark:bg-gray-900 ">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-        <img src={calendarImage} className="h-8" alt="Flowbite Logo" />
+        <div className="rounded bg-sky-400 ">
+          <img src={restaurantImage} className="h-10" alt="Flowbite Logo" />
+        </div>
         <NavLink to="/">
           <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
             TrainWithMe
