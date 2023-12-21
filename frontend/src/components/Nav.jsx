@@ -27,9 +27,11 @@ function Nav() {
   return (
     <nav className="bg-white border-gray-200 dark:bg-gray-900 ">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-        <div className="rounded bg-sky-400 ">
-          <img src={restaurantImage} className="h-10" alt="Flowbite Logo" />
-        </div>
+        <NavLink to={"/"}>
+          <div className="rounded bg-sky-400 ">
+            <img src={restaurantImage} className="h-10" alt="Flowbite Logo" />
+          </div>
+        </NavLink>
         <NavLink to="/">
           <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
             TrainWithMe

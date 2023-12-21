@@ -1,20 +1,29 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
+import boyImage from "../assets/boy.png";
 
 function TrainingSchedulePage() {
   const { userInfo } = useSelector((state) => state.auth);
   return (
     <>
-      <div className="bg-blue-500 min-h-screen pt-10 pb-10 pl-4 pr-4   justify-start items-center">
-        <div className="bg-sky-100 rounded border-white border-4 p-4 mb-4">
-          <h1 className="font-mono text-xl">
+      <div className="bg-blue-500 min-h-screen   justify-start items-center">
+        <div className="bg-sky-100 rounded border-white border-4 pt-4 pb-4 mb-4">
+          <img className="w-16 h-auto" src={boyImage} alt="" />
+          <h1 className="uppercase text-xl">
             {userInfo.first_name} {userInfo.last_name}
           </h1>
 
           <h3 className="text-base">Position: Server</h3>
         </div>
-        <div className="max-w-md mx-auto bg-white shadow-lg rounded-lg overflow-hidden mt-16">
+        <div className="flex justify-center mt-5">
+          <NavLink to={"/dashboard"}>
+            <button className="dark:bg-gray-900 text-sky-400 rounded px-2 py-2 mr-6 mt-3  hover:bg-gray-700 font-semibold">
+              Back to Dashboard
+            </button>
+          </NavLink>
+        </div>
+        <div className="max-w-md mx-auto bg-white shadow-lg rounded-lg overflow-hidden mt-8 mb-14">
           <div className="px-4 py-2">
             <h1 className="text-gray-800 font-mono text-2xl uppercase flex justify-center">
               Training schedule
@@ -140,13 +149,6 @@ function TrainingSchedulePage() {
               </div>
             </li>
           </ul>
-        </div>
-        <div className="flex justify-center mt-5">
-          <NavLink to={"/dashboard"}>
-            <button className="bg-sky-400 rounded px-1 py-1 mr-6 mt-6 text-sky-700 hover:bg-sky-300 font-semibold">
-              Back to Dashboard
-            </button>
-          </NavLink>
         </div>
       </div>
     </>

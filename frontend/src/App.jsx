@@ -12,6 +12,9 @@ import ActivatePage from "./pages/ActivatePage";
 import NotFoundPage from "./pages/notFoundPage";
 import TrainingSchedulePage from "./pages/TrainingSchedulePage";
 import FoodDescriptionsPage from "./pages/FoodDescriptionsPage";
+import Appetizers from "./CategoryPages/Appetizers";
+import Entrees from "./CategoryPages/Entrees";
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -27,8 +30,11 @@ function App() {
           <Route path="/activate/:uid/:token" element={<ActivatePage />} />
           <Route path="/training-schedule" element={<TrainingSchedulePage />} />
           <Route path="/food-descriptions" element={<FoodDescriptionsPage />} />
+          <Route path="/apps" element={<Appetizers />} />
+          <Route path="/entrees" element={<Entrees />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
+        <Footer />
       </Router>
       <ToastContainer />
     </>
